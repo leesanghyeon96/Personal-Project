@@ -1,0 +1,84 @@
+.show_div1{
+    height:200px;
+    width:100%;
+    background-image: linear-gradient(
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.3)
+    ), url(img/ol.jpg);
+    position:absolute;
+}
+.show_div1_text{
+    position: absolute;
+    bottom:70px;
+    left:42%;
+    font-size: 42px;
+}
+.show_sha{
+    width:100%;
+    height: 200px;
+}
+.show_ul{
+    width:100%;
+    height:100px;
+}
+.show_ul li{
+    float:left;
+    list-style-type: none;
+    height:100px;
+    width:25%;
+    font-size: 32px;
+    text-align: center;
+    padding-top: 25px;
+    border:1px solid black;
+}
+.show_ul a{
+    text-decoration-line: none;
+    color:black;
+    border-bottom: 3px solid black;
+}
+.show_ul a:hover{
+    color:green;
+    border-bottom: 3px solid green;
+}
+.div2{
+    width:100%;
+    height:800px;
+}
+.div2_p1{
+    width:100%;
+    height:100px;
+    font-size: 24px;
+    padding:40px 0 0 150px;
+}
+.div2_p1 a{
+    text-decoration-line: none;
+    color:black;
+    border-bottom: 1px solid black;
+}
+.div3_main{
+    width:100%;
+    height:700px;
+    border-top: 1px solid black;
+    padding-top: 10px;
+}
+.div3_main_div{
+    width:25%;
+    height:350px;
+    float:left;
+}
+.div3_main_div img{
+    width:60%;
+    height:270px;
+    display: block;
+    margin:0 auto;
+    margin-bottom: 10px;
+}
+#div3_text{
+    font-size: 24px;
+    margin-left:20%;
+    text-decoration-line:none;
+    color:black;
+}
+#div3_text:hover{
+    border-bottom: 2px solid black;
+}

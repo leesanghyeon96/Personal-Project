@@ -1,0 +1,36 @@
+.footer{
+    height:100px;
+    background-color: rgb(233, 233, 233);
+}
+.footer_div1{
+    width:30%;
+    height:100px;
+    float:left;
+}
+.footer_span1_div1{
+    float:left;
+}
+.footer_span1_div2{
+    margin-left: 65px;
+    width:150px;
+    padding:10px 0 10px 0;
+}
+.footer_d{
+    width:220px;
+    height:80px;
+    margin: 5px 0 0 230px;
+}
+.footer_div2{
+    width:70%;
+    margin-left: 30%;
+    height:100px;
+}
+.footer_div2 li{
+    list-style-type: none;
+    float:left;
+    padding:5px 20px 5px 20px;
+}
+.footer_div2_div{
+    padding:10px;
+    margin-top: 10px;
+}

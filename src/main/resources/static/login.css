@@ -1,0 +1,111 @@
+.loginbox{
+    width:100%;
+    height:600px;
+    background-image: linear-gradient(
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.5)
+    ), url(img/fro.jpg);
+}
+.login_t{
+    height:150px;
+    font-size: 36px;
+    padding-left: 200px;
+}
+.loginbox_box{
+    border-top:5px solid black;
+    width:800px;
+    height:400px;
+    margin:0 auto;
+    margin-top: 25px;
+}
+.loginbox_box img{
+    width:100px;height:100px;
+    position:relative;
+    margin:30px 10px 0 100px;
+    float:left;
+}
+.loginbox_box_d1{
+    width:645px;
+    height: 100px;
+    margin:30px 0 0 150px;
+}
+.loginbox_box_d1_text1{
+    font-size: 32px;
+    margin:10px;
+}
+.loginbox_box_d1_text2{
+    font-size: 16px;
+    margin-left: 10px;
+}
+.loginbox_idpwbox{
+    width:600px;
+    height:200px;
+    margin:0 auto;
+}
+.loginbox_idpw{
+    width:400px;
+    height:200px;
+    float:left;
+}
+.loginbox_en{
+    width:200px;
+    height:200px;
+    margin-left: 400px;
+}
+.loginbox_id,.loginbox_pw{
+    width:400px;
+    height:100px;
+}
+.loginbox_id p{
+    font-size: 24px;
+    width:100px;
+    float:left;
+    margin-top:40px;
+}
+.loginbox_pw p{
+    font-size: 24px;
+    width:100px;
+    float:left;
+    margin-top:20px;
+}
+.loginbox_id input{
+    width:250px;
+    height:30px;
+    margin-top:40px;
+    margin-left: 10px;
+}
+.loginbox_pw input{
+    width:250px;
+    height:30px;
+    margin-top:20px;
+    margin-left: 10px;
+}
+.loginbox_en_en_button{
+    width:150px;
+    height:150px;
+    margin:25px 0 0 25px;
+    text-align: center;
+    font-size: 32px;
+    background-color: blue;
+    color:white;
+}
+.loginbox_en_en_button:active{
+    background-color: rgb(0, 0, 184);
+}
+.loginbox_ser{
+    width:600px;
+    height:65px;
+    margin:0 auto;
+}
+.loginbox_ser li{
+    float:left;
+    list-style-type: none;
+    padding:20px 50px 0 50px;
+}
+#ser{
+    color:black;
+    text-decoration-line: none;
+}
+#ser:hover{
+    border-bottom: 1px solid black;
+}

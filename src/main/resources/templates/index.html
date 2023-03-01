@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit-no">
+    <title>index page</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="index.js"></script>
+
+
+
+
+</head>
+<body>
+
+	<form>
+    <header class="header">
+        
+        <!--<div class="slideshow-image"></div>-->
+        
+
+
+        <div class="header_div1">
+            <div class="header_div1_div">
+                <ul class="header_div1_ul">
+                    <li class="header_div1_ul_li"><a th:href="@{login}" id="header_div_ul_li_text">로그인</a></li>
+                    <li class="header_div1_ul_li"><a th:href="@{member}" id="header_div_ul_li_text">회원가입</a></li>
+                    <li class="header_div1_ul_li"><a href="/" id="header_div_ul_li_text">홈</a></li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="header_div2">
+            <div class="header_div2_logo">
+                <div class="header_div2_logo_img"><img src="/img_header_logo/로고.png"></div>    <!-- width:10% :155px -->
+                <div class="header_div2_logo_text">
+                    <div class="header_div2_logo_text_text1">문화체육관광부</div>
+                    <div class="header_div2_logo_text_text2">역사박물관</div>
+                </div>   <!-- width:15% :230-->
+            </div>
+
+            <div class="header_div2_menu" id="n1">
+                <ul class="header_div2_menu_ul">                    
+                    <li class="header_div2_menu_ul_li">
+                        <a href="#" class="pr1">관람,이용</a>
+                    </li>
+                    <li class="header_div2_menu_ul_li">
+                        <a href="#" class="pr1">전시</a>
+                    </li>
+                    <li class="header_div2_menu_ul_li">
+                        <a href="#" class="pr1">교육,참여</a>
+                    </li>
+                    <li class="header_div2_menu_ul_li">
+                        <a href="#" class="pr1">소식</a>
+                    </li>
+                    <li class="header_div2_menu_ul_li">
+                        <a th:href="@{intro}" class="pr1">박물관소개</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="header_div2_submenu">
+                <ul>
+                    <li>이용안내</li>
+                    <li><a href="#">예약하기</a></li>
+                    <li>오시는길</li>
+                </ul>
+                <ul>
+                    <li><a href="/showroom1">상설전시</a></li>
+                    <li>특별전시</li>
+                </ul>
+                <ul>
+                    <li>교육프로그램</li>
+                    <li>관람후기</li>
+                </ul>
+                <ul></ul>
+                <ul id="header_div2_submenu_lau">
+                    <li><a th:href="@{/intro}">인사말</a></li>
+                    <li>설립 목적, 비전</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="header_div3">
+            <div class="header_div3_hour">
+                관람시간 09:00 - 18:00
+            </div>
+            <div class="header_div3_date">
+                <h3>오늘의 박물관 </h3>
+                <span id="date"></span>
+                <p>오늘은 <b>개관일</b> 입니다.</p>
+                <p>1월1일, 설날, 추석, 매주 월요일 <b>휴관</b></p>
+                <p>대체공휴일인 경우 화요일 휴관</p>
+            </div>
+            <div class="header_div3_location">
+                <a href="#">오시는길</a>
+            </div>
+        </div>
+    </header>
+
+    <main1>
+        <div class="main1_div">
+            <div class="main1_div_pd">
+                <div class="main1_div_pd_text">상설전시
+                </div>
+
+                <div class="main1_div_pd_dis1">
+                    <div class="main1_div_pd_dis1_div1">
+                    선사,고대관<br><br><a href="/showroom1">이동하기</a>
+                    </div>
+                    <div class="main1_div_pd_dis1_div2">
+                        <span class="main1_div_pd_dis1_div2_img"><img src="img/house.jpg"></span>
+                        <span class="main1_div_pd_dis1_div2_text">
+                            <b>
+                            지금 보시는 집모양 토제품은 고구려 시대의 무덤에 함께 묻힌 껴묻거리입니다. 
+                            우리는 이 유물을 통해 고구려의 가옥의 한 형태를 알 수 있지요.
+                            </b>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="main1_div_pd_dis2">
+                    <div class="main1_div_pd_dis2_div1">
+                    중,근세관<br><br>이동하기
+                    </div>
+                    <div class="main1_div_pd_dis2_div2">
+                        <span class="main1div_pd_dis2_div2_img"><img src="img/book.jpg" width="280" height="186"></span>
+                        <span class="main1div_pd_dis2_div2_text">
+                            <b>
+                            사도세자의 묘지명입니다. 이것은 영조가 죽은 아들을 위해 직접 지은 것으로 
+                            “아비로 하여금 만고에 없이 자식을 죽이는 일을 하게 했다”는 영조의 깊은 탄식과 변명이 적혀 있습니다.
+                        </b>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="main1_div_pd_dis3">
+                    <div class="main1_div_pd_dis3_div1">
+                    조각,공예관<br><br>이동하기
+                    </div>
+                    <div class="main1_div_pd_dis3_div2">
+                        <span class="main1div_pd_dis2_div2_img"><img src="img/w.jpg" width="280" height="186"></span>
+                        <span class="main1div_pd_dis2_div2_text">
+                            <p><b>백자 청화 구슬무늬 항아리</b></p>
+                            <p><b>몸체의 어깨 부분에 화려하게 장식한 구슬 무늬를 장식하고, 연봉 모양의 손잡이가 달린 뚜껑에는 도안화된 꽃과 원 무늬를 꾸민 작은 
+                                청화백자 항아리입니다.</b></p>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="main1_div_sd">
+                <div class="main1_div_sd_text">특별전시</div>
+                <div class="main1_div_sd_dis1">
+                    <div class="main1_div_sd_dis1_div">
+                        <b>대동여지도</b>
+                    </div>
+                    <div class="main1_div_sd_dis1_img">
+                        <img src="img/map.jpg" width="300px" height="500px" class="main1_div_sd_dis1_img_img">
+                    </div>
+                    <div class="main1_div_sd_dis1_text">
+                        <p>전시기간</p>
+                        <p>01.01 ~ 06.30</p>
+                    </div>
+                </div>
+                
+                <div class="main1_div_sd_dis2">
+                    <div class="main1_div_sd_dis2_div">
+                        <b>백제 귀엣-고리</b>
+                    </div>
+                    <div class="main1_div_sd_dis2_img">
+                        <img src="img/sp.jpg" width="300px" height="500px" class="main1_div_sd_dis2_img_img">
+                    </div>
+                    <div class="main1_div_sd_dis2_text">
+                        <p>전시기간</p>
+                        <p>01.01 ~ 06.30</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </main1>
+
+    <main2>
+        <div class="main2_div">
+            <div class="main2_div_news">
+                <div class="main2_div_news_div">
+                    <p><b>새소식</b></p>
+                    <table class="table">
+                        <tr><td class="table_td1">분실물 정보 안내</td><td class="table_td2">2023-01-01</td></tr>
+                        <tr><td class="table_td1">특별전 백제 귀엣-고리 전시 해설 안내</td><td class="table_td2">2023-01-01</td></tr>
+                        <tr><td class="table_td1">도서관 휴관일 안내 (1.15)</td><td class="table_td2">2023-01-01</td></tr>
+                        <tr><td class="table_td1">분실물 정보 안내</td><td class="table_td2">2023-01-01</td></tr>
+                        <tr><td class="table_td1">2022년 재난대응 안전한국훈련 현장 훈련 알림</td><td class="table_td2">2023-01-01</td></tr>
+                    </table>
+                    <div class="main2_div_news_div_div"><a href="#"><b>문의하기</b></a></div>
+                </div>
+                <div></div>
+            </div>
+
+            <div class="main2_div_e">
+                <div class="main2_div_e_div">
+                    <p><b>관람, 예약안내</b></p>
+                    <div class="main2_div_e_div_d1">
+                        <div class="main2_div_e_div_d1_box1">
+                            
+                                <div class="main2_div_e_div_d1_box1_div">오시는길</div>
+                                <img src="img/car1.jpg">
+                            
+                        </div>
+                        <div class="main2_div_e_div_d1_box2">
+                            
+                                <div class="main2_div_e_div_d1_box2_div">FAQ</div>
+                                <img src="img/faq.jpg">
+                            
+                        </div>
+                        <div class="main2_div_e_div_d1_box3">
+                            
+                                <div class="main2_div_e_div_d1_box3_div">소장품 검색</div>
+                                <img src="img/rs.jpg">
+                            
+                        </div>
+                        <div class="main2_div_e_div_d1_box4">
+                            
+                                <div class="main2_div_e_div_d1_box4_div">학술자료</div>
+                                <img src="img/doc.jpg">
+                            
+                        </div>
+                    </div>
+                    <div class="main2_div_e_div_d2">
+                        <a href="#"><b>온라인<br>
+                        학교단체 교육 예약</b></a>
+                    </div>
+                    <div class="main2_div_e_div_d3">
+                        <a href="#"><b>봉사활동 신청</b></a>
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>
+    </main2>
+
+    <footer class="footer">
+        <div class="footer_div1">
+            <div class="footer_d">
+                <div class="footer_span1_div1"><img src="img/elogo.jpg"></div>
+                <div class="footer_span1_div2">문화체육관광부<br>역사박물관</div>
+            </div>
+        </div>
+        <div class="footer_div2">
+            <ul>
+                <li>개인정보처리방침</li>
+                <li>정보공개</li>
+                <li>이용약관</li>
+                <li>저작권정책</li>
+            </ul>
+            <br>
+            <div class="footer_div2_div">00011 서울시 종로구 종로로 52 (16-5)<br>대표전화 : 02-0202-0202</div>
+        </div>
+        
+    </footer>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+
+*{
+    margin:0;padding:0;
+    box-sizing: border-box;
+}
+.header{
+    width:100%;
+    z-index:3;
+    background-size: 1535px 800px;
+    width:100%;
+    height:140px;
+}
+.header_div1{
+    width:100%;
+    height:40px;
+    z-index:3;
+}
+.header_div1_div{
+    height:40px;
+    width:400px;
+    float:right;
+}
+.header_div1_ul{
+    padding :10px;
+    width:100%;
+}
+.header_div1_ul_li, #header_div_ul_li{
+    float:left;
+    list-style-type: none;
+    padding:0 20px 0 20px;
+}
+.header_div2{
+    width:100%;
+    height:100px;
+    z-index:3;
+}
+.header_div2_logo{
+    width:100%;
+    height:100px;
+    float:left;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.header_div2_logo_img{
+    width:155px;
+    height:100px;
+    float: left;
+}
+.header_div2_logo_img img{
+    width:70px;
+    margin:15px 0 0 80px;
+    border-radius: 35px;
+}
+.header_div2_logo_text{
+    width:230px;
+    height:100px;
+    margin-left: 155px;
+}
+.header_div2_logo_text_text1{
+    font-size: 18px;
+    margin-top: 20px;
+}
+.header_div2_logo_text_text2{
+    font-size: 18px;    
+}
+.header_div2_menu{
+    width:100%;
+    height:100px;
+    float:right;
+    position:relative;
+    bottom:100px;
+    z-index:3;
+}
+.header_div2_menu_ul{
+    height:100px;
+    margin-left: 385px;
+    height:100px;
+}
+.header_div2_menu_ul_li{
+    float:left;
+    padding:33px 0 33px 0;
+    text-align: center;
+    font-size:20px;
+    width:20%;
+    
+}
+.header_div2_menu_ul_li ul{
+    font-size: 18px;
+    list-style-type: none;
+    text-align: center;
+}
+.header_div2_menu_ul_li a{
+    text-decoration-line: none;
+    color:black;
+}
+.header_div2_submenu{
+    margin-top: 50px;
+    height:0px;
+    overflow: hidden;
+}
+#header_div2_submenu{
+    height:150px;
+    width:75%;
+    margin-left: 385px;
+    margin-top: 100px;
+    border:1px solid black;
+    position: absolute;
+    display:none;
+    z-index: 10;
+}
+#header_div2_submenu ul{
+    width:20%;
+    float:left;
+    text-align: center;
+}
+#header_div2_submenu li{
+    padding:12px;
+    font-size: 18px;
+    list-style-type: none;
+}
+#header_div_ul_li_text, #header_div_ul_li{
+    text-decoration-line: none;
+}

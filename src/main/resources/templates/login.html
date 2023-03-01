@@ -1,0 +1,46 @@
+
+<html layout:decorate="~{layout}">
+<div layout:fragment="content">
+    <div data-include="header.html"></div>
+
+    <div class="loginbox">
+        <div class="login_t">로그인</div>
+        <div class="loginbox_box">
+            <img src="img/login.jpg">
+            <div class="loginbox_box_d1">
+                <div class="loginbox_box_d1_text1"><b>Login</b></div>
+                <div class="loginbox_box_d1_text2"><b>로그인 정보를 입력해주세요.</b></div>
+            </div>
+            <div class="loginbox_idpwbox">
+                <div class="loginbox_idpw">
+                    <div class="loginbox_id">
+                        <p>아이디</p>
+                        <input type="text" name="id" size="20" id="id" >
+                    </div>
+                    <div class="loginbox_pw">
+                        <p>비밀번호</p>
+                        <input type="text" name="pw" size="20" id="pw" >
+                    </div>
+                </div>
+
+                <div class="loginbox_en">
+                    <div class="loginbox_en_en">
+                        <button class="loginbox_en_en_button">로그인</button>
+                    </div>
+                </div>
+            </div>
+            <div class="loginbox_ser">
+                <ul>
+                    <li><b><a href="#" id="ser">회원가입</a></b></li>
+                    <li><b><a href="#" id="ser">아이디 찾기</a></b></li>
+                    <li><b><a href="#" id="ser">비밀번호 찾기</a></b></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div data-include="footer.html"></div>
+
+</body>
+</html>

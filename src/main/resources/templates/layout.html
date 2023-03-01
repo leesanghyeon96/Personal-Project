@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>header</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="header.js"></script>
+    <link rel = "stylesheet" type = "text/css" href="header.css">
+    <link rel="stylesheet" type="text/css" href="footer.css">
+    <link rel="stylesheet" type="text/css" href="intro.css">
+	<link rel = "stylesheet" type = "text/css" href="login.css">
+	<link rel="stylesheet" type="text/css" href="showroom1.css">
+	<link rel="stylesheet" type="text/css" href="p1_show.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="member.css">
+	
+</head>
+<body>
+
+	<header th:replace="~{header::headerfragment}"></header>
+
+	<!-- 기본 탬플릿에 삽입 -->
+	<th:block layout:fragment="content"></th:block>
+
+
+
+
+
+	<!-- 부트스트랩 자바 스크립트 import -->
+	<script th:src="@{/bootstrap.min.js}"></script>
+	
+	
+	<footer th:replace="~{footer::footerfragment}"></footer>
+</body>
+</html>

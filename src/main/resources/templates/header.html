@@ -1,0 +1,66 @@
+
+	<header class="header" th:fragment="headerfragment">
+    
+        <div class="header_div1">
+            <div class="header_div1_div">
+                <ul class="header_div1_ul">
+                    <li class="header_div1_ul_li"><a th:href="@{login}" id="header_div_ul_li_text">로그인</a></li>
+                    <li class="header_div1_ul_li"><a th:href="@{member}" id="header_div_ul_li_text">회원가입</a></li>
+                    <li class="header_div1_ul_li"><a href="/" id="header_div_ul_li_text">홈</a></li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="header_div2">
+            <div class="header_div2_logo">
+                <div class="header_div2_logo_img"><img src="/img_header_logo/로고.png"></div>    <!-- width:10% :155px -->
+                <div class="header_div2_logo_text">
+                    <div class="header_div2_logo_text_text1">문화체육관광부</div>
+                    <div class="header_div2_logo_text_text2">역사박물관</div>
+                </div>   <!-- width:15% :230-->
+            </div>
+	
+            <div class="header_div2_menu" id="n1">
+                <ul class="header_div2_menu_ul">                    
+                    <div class="header_div2_menu_ul_li">
+                        <a href="#" class="pr1">관람,이용</a>
+                    </div>
+                    <div class="header_div2_menu_ul_li">
+                        <a href="#" class="pr1">전시</a>
+                    </div>
+                    <div class="header_div2_menu_ul_li">
+                        <a href="#" class="pr1">교육,참여</a>
+                    </div>
+                    <div class="header_div2_menu_ul_li">
+                        <a href="#" class="pr1">소식</a>
+                    </div>
+                    <div class="header_div2_menu_ul_li">
+                        <a href="#" class="pr1">박물관소개</a>
+                    </div>
+                </ul>
+            </div>
+
+            <div id="header_div2_submenu">
+                <ul>
+                    <li>이용안내</li>
+                    <li><a href="#">예약하기</a></li>
+                    <li>오시는길</li>
+                </ul>
+                <ul>
+                    <li><a href="/showroom1">상설전시</a></li>
+                    <li>특별전시</li>
+                </ul>
+                <ul>
+                    <li>교육프로그램</li>
+                    <li>관람후기</li>
+                </ul>
+                <ul></ul>
+                <ul id="header_div2_submenu_lau">
+                    <li><a th:href="@{/intro}">인사말</a></li>
+                    <li>설립 목적, 비전</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
