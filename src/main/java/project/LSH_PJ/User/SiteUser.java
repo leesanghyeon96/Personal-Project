@@ -1,4 +1,4 @@
-package project.LSH_PJ.User;
+package project.LSH_PJ.user;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,10 +19,13 @@ public class SiteUser {
     private Long id;
 
     @Column(unique = true)
-    private String username;
+    public String username;
+    
 
     private String password;
 
     @Column(unique = true)
-    private String email;
+    private	 String email;
+
+
 }

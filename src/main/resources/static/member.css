@@ -1,8 +1,11 @@
 .memberbox{
-	width:100%;
-    height:600px;
     background-image: linear-gradient(
     rgba(255, 255, 255, 0.5),
     rgba(255, 255, 255, 0.5)
     ), url(img/fro2.jpg);
+    background-size:contain;
+    
+}
+.alert0{
+	z-index:10;
 }

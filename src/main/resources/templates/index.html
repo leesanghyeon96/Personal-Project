@@ -25,7 +25,13 @@
         <div class="header_div1">
             <div class="header_div1_div">
                 <ul class="header_div1_ul">
-                    <li class="header_div1_ul_li"><a th:href="@{login}" id="header_div_ul_li_text">로그인</a></li>
+                
+                    <li class="header_div1_ul_li">
+                    	<a th:href="@{login}" id="header_div_ul_li_text" sec:authorize="isAnonymous()">로그인</a>
+                    	<a th:href="@{logout}" id="header_div_ul_li_text" sec:authorize="isAuthenticated()">로그아웃</a>
+                    </li>
+                    
+                    
                     <li class="header_div1_ul_li"><a th:href="@{member}" id="header_div_ul_li_text">회원가입</a></li>
                     <li class="header_div1_ul_li"><a href="/" id="header_div_ul_li_text">홈</a></li>
 

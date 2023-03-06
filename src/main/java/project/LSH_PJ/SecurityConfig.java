@@ -2,6 +2,8 @@ package project.LSH_PJ;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -31,10 +33,17 @@ public class SecurityConfig {
             .addHeaderWriter(new XFrameOptionsHeaderWriter(
                     XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN))
         	
-        	
-        	
-        	
-        	
+        // 03-06 추가 (로그인 URL 등록)
+        .and()
+            .formLogin()
+            .loginPage("/login")
+            .defaultSuccessUrl("/")
+        // 03-06 (로그아웃 기능 추가)
+        .and()
+            .logout()
+            .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+            .logoutSuccessUrl("/")
+            .invalidateHttpSession(true)
         	
 		
 		
@@ -43,10 +52,16 @@ public class SecurityConfig {
 		return http.build();
 	}
 	
-	
+	// 03-01 빈등록
     @Bean
     PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+    
+    // 03-06 스프링 시큐리티의 인증을 담당하는 빈등록
+    @Bean
+    AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception{
+    	return authenticationConfiguration.getAuthenticationManager();
     }
 	
 }
