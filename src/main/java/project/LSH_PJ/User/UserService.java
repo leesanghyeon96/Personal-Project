@@ -24,9 +24,10 @@ public class UserService {
         
         //SecurityConfig에 빈을 생성해 객체주입
         //BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    	//user.setPassword(passwordEncoder.encode(password));
+        user.setPassword(this.passwordEncoder.encode(password));
+    	
         
-        user.setPassword(passwordEncoder.encode(password));
         
         
         this.userRepository.save(user);

@@ -157,10 +157,8 @@
     text-decoration-line: none;
     color:white;
 }
-.header_div2_submenu{
-    margin-top: 50px;
-    height:0px;
-    overflow: hidden;
+#header_div2_submenu{
+	width:20%;
 }
 #header_div2_submenu a{
     color:black;
@@ -228,7 +226,7 @@
     display:none;
 }
 #header_div2_submenu ul{
-    width:233px;
+    width:20%;
     float:left;
     text-align: center;
 }
@@ -237,9 +235,6 @@
     font-size: 18px;
     list-style-type: none;
     
-}
-#header_div2_submenu_lau{
-    margin-left: 200px;
 }
 #header_div_ul_li_text, #header_div_ul_li{
     color:white;
