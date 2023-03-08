@@ -1,9 +1,17 @@
 <html layout:decorate="~{layout}">
 <div layout:fragment="content">
+
+<th:block layout:fragment="css">
+	<link rel="stylesheet" type="text/css" href="freeboard.css">
+</th:block>
+
+	
+	<!-- 03-08 게시판 생성 -->
 	
     <h1> 자유게시판 </h1>
     <br>
     <hr>
+    
     
     <center>
 	    <table class="table">
@@ -18,16 +26,58 @@
 	        </thead>
 	
 	        <tbody>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+	        	<!--  페이징 처리를 위해 수정 03-08
+				<tr th:each="freeBoard : ${boardList}"> -->
+				<tr th:each="freeBoard, loop : ${paging}">
+					<td width=10% th:text="${paging.getTotalElements - (paging.number * paging.size) - loop.index}">번호</td>
+					
+					<td width=40%>
+						<a th:href="@{|fbdetail/${freeBoard.id}|}" th:text="${freeBoard.subject}" class="atag">제목</a>
+					</td>
+					
+					<td width=15% th:if="${freeBoard.author != null}" th:text="${freeBoard.author.username}">등록자</td>
+					
+					<td width=15%>[[${#temporals.format(freeBoard.createDate, 'yyyy-MM-dd HH:mm')}]]</td>
+					
+					<td width=10%>조회수</td>
 				</tr>
 	        </tbody>
 	    </table>
+	    
+	    <!-- 03-08 페이징 처리 -->
+	    <div th:if="${!paging.isEmpty()}">
+	    	<ul class="pagination justify-content-center">
+	    	
+	    		<li class="page-item" th:classappend="${!paging.hasPrevious} ? 'disabled'">
+	    			<a class="page-link"
+	    				th:href="@{|?page=${paging.number-1}|}">
+	    				<span>이전</span>
+	    			</a>
+	    		</li>
+	    		
+	    		<li th:each="page:${#numbers.sequence(0, paging.totalPages-1)}"
+	    			th:classappend="${page == paging.number} ? 'active'"
+	    			th:if="${page >= paging.number-5 and page <= paging.number+2}"
+	    			class="page-item">
+	    			<a th:text="${page}" class="page-link" th:href="@{|?page=${page}|}"></a>
+	    		</li>
+	    		
+				<li class="page-item" th:classappend="${!paging.hasNext} ? 'disabled'">
+	                <a class="page-link" th:href="@{|?page=${paging.number+1}|}">
+	                    <span>다음</span>
+	                </a>
+	    		</li>
+	    		
+	    	</ul>
+	    </div>
+	    <!-- 페이징 끝 -->
+	    
+	    
 	</center>
+
+	<div class="adiv">
+		<a th:href="@{/fbcreate}" id="awri"> 글 쓰기 </a>
+	</div>
 
 </div>
 </html>

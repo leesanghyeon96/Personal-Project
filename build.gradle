@@ -38,6 +38,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
 	
+	//유효성 검사 라이브러리
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	
 	//스프링 시큐리티 설치 (03-01 회원가입을 위해 추가함)

@@ -9,7 +9,7 @@ import lombok.Setter;
 // 03-01 (회원가입을 위한 폼 클래스 생성)
 @Getter
 @Setter
-public class UserCreateForm {
+public class UserDto {
 	@Size(min=3, max=10)
 	@NotEmpty(message = "사용자ID를 입력해 주세요.")
 	private String username;

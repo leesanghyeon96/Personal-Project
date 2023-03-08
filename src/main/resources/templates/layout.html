@@ -5,18 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>header</title>
+    
+    <!-- 부트스트랩 -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    
+    <!-- header와 footer 공통 -->
     <script src="header.js"></script>
-    <link rel = "stylesheet" type = "text/css" href="header.css">
+    <link rel="stylesheet" type = "text/css" href="header.css">
     <link rel="stylesheet" type="text/css" href="footer.css">
-    <link rel="stylesheet" type="text/css" href="intro.css">
-	<link rel = "stylesheet" type = "text/css" href="login.css">
-	<link rel="stylesheet" type="text/css" href="showroom1.css">
-	<link rel="stylesheet" type="text/css" href="p1_show.css">
-	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="member.css">
-	<link rel="stylesheet" type="text/css" href="freeboard.css">
-	
+    
+    <!-- 페이지별 css와 script -->
+    <th:block layout:fragment="css"></th:block>
+    <th:block layout:fragment="script"></th:block>
+    
 </head>
 <body>
 

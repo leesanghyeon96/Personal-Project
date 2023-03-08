@@ -17,18 +17,19 @@ public class UserController {
 	
 	
 	@GetMapping(value = "/member")
-	public String member(UserCreateForm userCreateForm) {
+	public String member(UserDto userDto) {
 		return "member";
 	}
 	
+	
 	@PostMapping("/member")
-	public String member(@Valid UserCreateForm userCreateForm, BindingResult bindingResult) {
+	public String member(@Valid UserDto userDto, BindingResult bindingResult) {
 		
 		if(bindingResult.hasErrors()) {
 			return "member";
 		}
 		
-		if(!userCreateForm.getPassword2().equals(userCreateForm.getPassword1())) {
+		if(!userDto.getPassword2().equals(userDto.getPassword1())) {
 			bindingResult.rejectValue("password2", "passwordInCorrect", "패스워드가 일치하지 않습니다.");
 			
 			return "member";
@@ -36,7 +37,7 @@ public class UserController {
 		
 
 		
-		userService.create(userCreateForm.getUsername(), userCreateForm.getEmail(), userCreateForm.getPassword1());
+		userService.create(userDto.getUsername(), userDto.getEmail(), userDto.getPassword1());
 		
 		return "redirect:/";
 		

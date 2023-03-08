@@ -119,6 +119,14 @@
     font-size: 18px;
     list-style-type: none;
 }
-#header_div_ul_li_text, #header_div_ul_li{
-    text-decoration-line: none;
+#header_div2_submenu_a{
+	text-decoration-line:none;
+	color:black;
+}
+#header_div2_submenu_a:hover{
+	border-bottom:3px solid black;
+}
+#header_div_ul_li_text{
+	text-decoration-line:none;
+	color:black;
 }

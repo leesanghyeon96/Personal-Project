@@ -1,6 +1,12 @@
 
 <html layout:decorate="~{layout}">
 <div layout:fragment="content">
+
+<th:block layout:fragment="css">
+	<link rel = "stylesheet" type = "text/css" href="login.css">
+</th:block>
+
+
     
 	<form th:action=@{/login} method="post">
 	

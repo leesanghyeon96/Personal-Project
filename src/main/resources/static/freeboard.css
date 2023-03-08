@@ -1,9 +1,34 @@
+        *{
+        	
+        }
         h1{
             padding-left: 10%;
         }
         .table{
             width:90%;
         }
-        th{
+        th, td{
         	text-align:center;
+        }
+
+        .atag{
+        	text-decoration-line:none;
+        	color:blue;
+        }
+        .atag:hover{
+        	border-bottom:1px solid blue;
+        }
+        
+        
+        #awri{
+        	float:right;
+        	margin-right:5%;
+        	padding:10px;
+        	background-color:blue;
+        	color:white;
+        	text-decoration-line:none;
+        	border-radius:5px;
+        }
+        .adiv{
+        	height:50px;
         }

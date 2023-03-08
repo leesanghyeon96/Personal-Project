@@ -1,5 +1,12 @@
 <html layout:decorate="~{layout}">
 <div layout:fragment="content" class="container my-3">
+
+<th:block layout:fragment="css">
+	<link rel="stylesheet" type="text/css" href="member.css">
+</th:block>
+
+
+
 <div class="memberbox">
  	<div class="my-3 border-bottom">
  		<div>
@@ -7,10 +14,11 @@
 		</div>
 	</div>
 
-	<form th:action="@{/member}" th:object="${userCreateForm}" method="post">
+	<form th:action="@{/member}" th:object="${userDto}" method="post">
  											
- 	<div th:replace="~{form_errors :: formErrorsFragment}" class="alert0"></div>
  		
+ 	<div th:replace="~{form_errors :: formErrorsFragment}" class="alert0"></div>
+ 		 
 	 	
 	 		
 	 		<div class="mb-3">
