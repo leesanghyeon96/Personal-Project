@@ -16,29 +16,41 @@
 
 	<form th:action="@{/member}" th:object="${userDto}" method="post">
  											
- 		
+ 		<!--  -->
  	<div th:replace="~{form_errors :: formErrorsFragment}" class="alert0"></div>
  		 
 	 	
 	 		
 	 		<div class="mb-3">
 	 			<label for="username" class="form-label">사용자 ID</label>
-	 			<input type="text" class="form-control" th:field="*{username}">
+	 			<input type="text" class="form-control" th:field="*{username}" placeholder="사용자 ID를 입력해주세요">
+	 			<!--  
+	 			<p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="fieldError"></p>
+	 			-->
 	 		</div>
 	 		
 			 <div class="mb-3">
 			 	<label for="password1" class="form-label">비밀번호</label>
-			 	<input type="password"  class="form-control" th:field="*{password1}">
+			 	<input type="password"  class="form-control" th:field="*{password1}" placeholder="비밀번호를 입력해주세요">
+			 		 			<!--  
+	 			<p th:if="${#fields.hasErrors('password1')}" th:errors="*{password1}" class="fieldError"></p>
+	 			-->
 			 </div>
 			 
 			 <div class="mb-3">
 			 	<label for="password2" class="form-label">비밀번호 확인</label>
-			 	<input type="password"  class="form-control" th:field="*{password2}">
+			 	<input type="password"  class="form-control" th:field="*{password2}" placeholder="비밀번호 확인을 입력해주세요">
+			 		 			<!--  
+	 			<p th:if="${#fields.hasErrors('password2')}" th:errors="*{password2}" class="fieldError"></p>
+	 			-->
 			 </div>
 	 
 			 <div class="mb-3">
 			 	<label for="email" class="form-label">이메일</label>
-			 	<input type="email"  class="form-control" th:field="*{email}">
+			 	<input type="email"  class="form-control" th:field="*{email}" placeholder="이메일주소를 입력해주세요">
+			 		 			<!--  
+	 			<p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="fieldError"></p>
+	 			-->
 			 </div>
 			 
 	 		<button type="submit" class="btn btn-primary">회원가입</button>

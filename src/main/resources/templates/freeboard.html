@@ -28,8 +28,8 @@
 	        <tbody>
 	        	<!--  페이징 처리를 위해 수정 03-08
 				<tr th:each="freeBoard : ${boardList}"> -->
-				<tr th:each="freeBoard, loop : ${paging}">
-					<td width=10% th:text="${paging.getTotalElements - (paging.number * paging.size) - loop.index}">번호</td>
+				<tr th:each="freeBoard, Loop : ${paging}">
+					<td width=10% th:text="${paging.getTotalElements - (paging.number*paging.size) - Loop.index}">번호</td>
 					
 					<td width=40%>
 						<a th:href="@{|fbdetail/${freeBoard.id}|}" th:text="${freeBoard.subject}" class="atag">제목</a>

@@ -76,11 +76,30 @@ public class FreeBoardService {
 	}
 	
 	
+	// 질문수정 03-09
+	public void modify(FreeBoard freeBoard, String subject, String content) {
+		
+		freeBoard.setSubject(subject);
+		freeBoard.setContent(content);
+		freeBoard.setModifyDate(LocalDateTime.now());
+		this.freeboardRepository.save(freeBoard);
+	}
 	
 	
 	
+	// 삭제 추가 03-09
+	public void delete(FreeBoard freeBoard) {
+		this.freeboardRepository.delete(freeBoard);
+	}
 	
 	
+	// 추천추가 03-09
+	public void vote(FreeBoard freeBoard, SiteUser siteUser) {
+		
+		freeBoard.getVoter().add(siteUser);
+		
+		this.freeboardRepository.save(freeBoard);
+	}
 	
 	
 	

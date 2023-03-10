@@ -1,6 +1,6 @@
 package project.LSH_PJ.user;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,7 +35,22 @@ public class UserController {
 			return "member";
 		}
 		
-
+		try {
+			 userService.create(userDto.getEmail(), userDto.getUsername(), userDto.getPassword1());
+			 
+		}catch(DataIntegrityViolationException e) {
+			
+			 e.printStackTrace();
+			 bindingResult.reject("memberFailed", "이미 등록된 사용자입니다.");
+			 
+			 return "member";
+			 
+		}catch(Exception e) {
+			 e.printStackTrace();
+			 bindingResult.reject("memberFailed", e.getMessage());
+			 
+			 return "member";
+		}
 		
 		userService.create(userDto.getUsername(), userDto.getEmail(), userDto.getPassword1());
 		
