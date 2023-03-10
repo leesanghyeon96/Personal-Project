@@ -1,4 +1,4 @@
-package project.LSH_PJ;
+package project.LSH_PJ.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,16 +13,16 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.header.writers.frameoptions.XFrameOptionsHeaderWriter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import project.LSH_PJ.config.CustomAuthenticationEntryPoint;
-
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
 	// 03-01 스프링 시큐리티로 인해 추가함 (로그인하지 않아도 모든 페이지 접근가능)
-	@Bean
-	SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
-		
+	
+	// 03-10 로그인처리
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    	
 		http.authorizeHttpRequests().requestMatchers(new AntPathRequestMatcher("/**")).permitAll()
 
 		.and()
@@ -32,49 +32,36 @@ public class SecurityConfig {
 			
 		.and()
 			.headers()
-			.addHeaderWriter(new XFrameOptionsHeaderWriter(XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN))
-		.and()
-			.formLogin()	
-			.loginPage("/login")	
-			.defaultSuccessUrl("/")
-		.and()
-			.logout()
-			.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-			.logoutSuccessUrl("/")
-			.invalidateHttpSession(true)	// 로그아웃후 세션에 담긴 모든 변수값을 삭제
-			;
-	return http.build();
-	}
-	
-	
-	
-//		아래는 오류남	
-//    @Bean
-//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-//        http.formLogin()
-//                .loginPage("/members/login")
-//                .defaultSuccessUrl("/")
-//                .usernameParameter("email")   // ID 의 name="username" 이 아닐 경우 반드시 명시 
-//                .failureUrl("/members/login/error")
-//                .and()
-//                .logout()
-//                .logoutRequestMatcher(new AntPathRequestMatcher("/members/logout"))
-//                .logoutSuccessUrl("/")
-//        ;
-//
-//        http.authorizeRequests()
-//                .mvcMatchers("/css/**", "/js/**", "/img/**").permitAll()
-//                .mvcMatchers("/", "/members/**", "/item/**", "/images/**").permitAll()
-//                .mvcMatchers("/admin/**").hasRole("ADMIN")
-//                .anyRequest().authenticated()
-//        ;
-//
-//        http.exceptionHandling()
-//                .authenticationEntryPoint(new CustomAuthenticationEntryPoint())
-//        ;
-//
-//        return http.build();
-//    }
+			.addHeaderWriter(new XFrameOptionsHeaderWriter(XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN));
+    	
+    	
+    	
+    	
+        http.formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("/")
+                .failureUrl("/login/error")
+                .and()
+                .logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/")
+        ;
+
+        http.authorizeHttpRequests()
+                .requestMatchers("/css/**", "/js/**", "/img/**","/header/**").permitAll()
+                .requestMatchers("/", "/member/**", "/item/**", "/images/**","/login/**",
+                		 "/intro/**", "/fbcreate/**", "/fbdetail/**", "/form_errors/**", "/freeboard/**",
+                		 "/newg/**", "/p1_show/**", "/showroom1/**").permitAll()
+                .requestMatchers("/admin/**").hasRole("ADMIN")
+                .anyRequest().authenticated()
+        ;
+
+        http.exceptionHandling()
+                .authenticationEntryPoint(new CustomAuthenticationEntryPoint())
+        ;
+
+        return http.build();
+    }
     
     // 03-01 패스워드
     @Bean

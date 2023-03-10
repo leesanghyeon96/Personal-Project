@@ -84,6 +84,7 @@ public class FreeboardController {
 		System.out.println(freeBoardDto.getSubject()); 
 
 		SiteUser siteUser = this.userService.getUser(principal.getName());
+				
 		this.freeboardService.fbcreate(freeBoardDto.getContent(), freeBoardDto.getSubject(), siteUser);
 		
 		
@@ -140,7 +141,7 @@ public class FreeboardController {
     		throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "삭제권한이 없습니다.");
     	}
     	this.freeboardService.delete(freeBoard);
-    	return "redirect:/";
+    	return "redirect:/freeboard";
     	
     }
 	

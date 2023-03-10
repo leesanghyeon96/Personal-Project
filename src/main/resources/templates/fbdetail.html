@@ -205,6 +205,30 @@
             border-top:1px solid black;
             padding:20px;
         }
+        .alli{
+        	list-style-type:none;
+        	width:100%;
+        	border:1px solid black;
+        	border-radius:10px;
+        	padding:10px;
+        	margin:10px;
+        }
+        .allil{
+        	position:relative;
+        }
+        .alli1{
+        width:70%;
+        float:left;
+        }
+        .alli2{
+        width:30%;
+        margin-left:70%;
+        border-left:1px solid black;
+        padding:10px;
+        }
+        .alli3{
+        	clear:both;
+        }
     </style>
 <script>
 
@@ -238,184 +262,104 @@ $(document).ready(function(){
 </head>
 <body>
     
-</body>
-</html>
-
-<header th:replace="~{header::headerfragment}"></header>
-
-
-
-
-
-<div class="outdiv">
-    <table class="ftable">
-        
-            <tr>
-                <div class="div2">
-                <th class="th1">제목</th>
-                <td class="td">${map.TITLE}</td>
-                <th class="th1" id="thth">조회수</th>
-                <td class="td">${map.HIT_CNT }</td>
-                </div>
-            </tr>
-        
-        <tr>
-            <th class="th1">작성자</th>
-            <td class="td">${map.CREA_ID }</td>
-            <th class="th1" id="thth">작성시간</th>
-            <td class="td">${map.CREA_DTM }</td>
-        </tr>
-        <tr class="tr2">
-            <th class="th2">내용</th>
-            <td colspan="3" class="td">
-                ${map.CONTENTS }
-            </td>
-        </tr>
-    </table>
-
-    <p/>
-
-        
-    <a th:href="@{|/modify/${FreeBoard.id}|}" class="btn btn-sm btn-outline-secondary"
-    sec:authorize="isAuthenticated()"
-    th:if="${FreeBoard.author != null and #authentication.getPrincipal().getUsername() == FreeBoard.author.username}"
-    th:text="수정"></a>
+    <header th:replace="~{header::headerfragment}"></header>
     
-
-    <a href="javascript:void(0);" th:data-uri="@{|/delete/${FreeBoard.id}|}"
-    class="delete btn btn-sm btn-outline-secondary" sec:authorize="isAuthenticated()"
-    th:if="${FreeBoard.author != null and #authentication.getPrincipal().getUsername() == FreeBoard.author.username}"
-    th:text="삭제">삭제</a>
-
-
-
-    <h5 class="anum" 
-    th:text="|${#lists.size(FreeBoard.answerList)}.|">개의 답변이 있습니다</h5>
-
-
-
-
-
-    <!-- 답변 작성 -->
-    <form th:action="@{|/facreate/${FreeBoard.id}|}" th:object="${FanserDto}" method="post" class="my-3">
+    <div class="outdiv">
+	    <table class="ftable">
+	        
+	            <tr>
+	                <div class="div2">
+	                <th class="th1">제목</th>
+	                <td class="td" th:text="${FreeBoard.subject}"></td>
+	                <th class="th1" id="thth">추천수</th>
+	                <td class="td">[[${#lists.size(FreeBoard.voter)}]]</td>
+	                </div>
+	            </tr>
+	            	
+	        
+	        <tr>
+	            <th class="th1">작성자</th>
+	            <td class="td" th:if="${FreeBoard.author != null}" th:text="${FreeBoard.author.username}"></td>
+	            <th class="th1" id="thth">작성시간</th>
+	            <td class="td" th:text="${#temporals.format(FreeBoard.createDate, 'yyyy-MM-dd HH:mm')}"></td>
+	        </tr>
+	        <tr class="tr2">
+	            <th class="th2">내용</th>
+	            <td colspan="3" class="td" th:text="${FreeBoard.content}">
+	            </td>
+	        </tr>
+	    </table>
+	    
+	    
 	
+	    <p/>
+	    
+	    <div>
+	    	<a th:href="@{|/modify/${FreeBoard.id}|}" th:text="수정" sec:authorize="isAuthenticated()"
+	    		th:if="${FreeBoard.author != null and #authentication.getPrincipal().getUsername() == FreeBoard.author.username}">
+	    	</a>
+	    	
+	    	<a th:href="@{|/delete/${FreeBoard.id}|}" th:text="삭제" sec:authorize="isAuthenticated()" class="delete"
+	    		th:if="${FreeBoard.author != null and #authentication.getPrincipal().getUsername() == FreeBoard.author.username}">
+	    		</a>
+	    	
+	    	<a href="javascript:void(0);" th:data-uri="@{|/vote/${FreeBoard.id}|}" class="recommend">
+	    		추천
+	    	</a>
+	    	
+	    </div>
+	
+	
+	    <div>
+		    <form th:action="@{|/facreate/${FreeBoard.id}|}" method="post">
+			    <textarea name="content" id="content" rows="15"></textarea>
+			    <input type="submit" value="답변등록">
+			</form>
+	    
+	    </div>
 		
-        <textarea name="content" id="content" rows="10" class="form-control"></textarea>
-        <input type="submit" value="답변등록" class="btn btn-dark my-2">
-    </form>
-
-
-
-
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-    <!-- 질문 
-    <h2 class="border-bottom py-2" th:text="${FreeBoard.subject}">제목</h2>
-    <div>
-    	<table>
-    		<tr>
-    			<th>작성자 : <span th:if="${FreeBoard.author != null}" th:text="${FreeBoard.author.username}"></span></th>
-    			<th>&emsp;&emsp;</th>
-    			<th>작성일 : <span th:text="${#temporals.format(FreeBoard.createDate, 'yyyy-MM-dd HH:mm')}"></span></th>
-    			<th>&emsp;&emsp;</th>
-    			<th>
-    				 <!-- 글 추천버튼 03-09 
-    				 <a href="javascript:void(0);" class="recommend btn btn-sm btn-outline-secondary"
-						 th:data-uri="@{|/vote/${FreeBoard.id}|}">
-						추천
-						<!-- 버튼에 추천수가 보이도록 
-						<span class="badge rounded-pill bg-success" th:text="${#lists.size(FreeBoard.voter)}"></span>
-					</a>
-    			</th>
-    		</tr>
-    	</table>
-    	
-
-    </div>
-    
-    <div class="card my-3">
-        <div class="card-body">
-            <div class="card-text" style="white-space: pre-line;" th:text="${FreeBoard.content}">내용</div>
-        </div>
-    </div>
-    
-    <div>
-    	                       	<!-- 글 수정버튼 03-09  -->
-            <div class="my-3">
-				 <a th:href="@{|/modify/${FreeBoard.id}|}" class="btn btn-sm btn-outline-secondary"
-				 sec:authorize="isAuthenticated()"
-				 th:if="${FreeBoard.author != null and #authentication.getPrincipal().getUsername() == FreeBoard.author.username}"
-				 th:text="수정"></a>
-				 
-				 <!-- 삭제 -->
-				<a href="javascript:void(0);" th:data-uri="@{|/delete/${FreeBoard.id}|}"
-                class="delete btn btn-sm btn-outline-secondary" sec:authorize="isAuthenticated()"
-                th:if="${FreeBoard.author != null and #authentication.getPrincipal().getUsername() == FreeBoard.author.username}"
-                th:text="삭제"></a>
-				 <!-- 
-				 <a th:href="${/freeboard}"> 게시판으로 이동</a>
+		<!-- 03-10 댓글추가 -->
+		<h4>[[${#lists.size(FreeBoard.answerList)}]] 개의 댓글이 있습니다.</h4>
+		
+    	<div>
+    		<div th:each="Fanswer : ${FreeBoard.answerList}" class="alli">
+    			<div class="allil">
+    			
+	    			<div th:text="${Fanswer.content}" class="alli1"></div>
+	    			
+	    			<div class="alli2">
+	    				<div>작성자 : 
+	    					<span th:if="${Fanswer.author != null}" th:text="${Fanswer.author.username}"></span>
+	    				</div>
+	    				<div>게시일시 : 
+	    					<span th:text="${#temporals.format(Fanswer.createDate, 'yyyy-MM-dd HH:mm')}"></span>
+	    				</div>
+	    			</div>
+	    			
+	    			<div class="alli3">
+				    	<a th:href="@{|/adelete/${Fanswer.id}|}" th:text="삭제" sec:authorize="isAuthenticated()" class="delete"
+				    		th:if="${Fanswer.author != null and #authentication.getPrincipal().getUsername() == Fanswer.author.username}">
+				    	</a> 
+					</div>
+					
+				</div>
 			</div>
-    </div>
-    
-    
-    
-    
-    
-    <!-- 답변의 갯수 표시  -->
-    <h5 class="border-bottom my-3 py-2" 
-        th:text="|${#lists.size(FreeBoard.answerList)}개의 답변이 있습니다.|"></h5>
-    <!-- 답변 반복 시작  -->
-    <div class="card my-3" th:each="answer : ${FreeBoard.answerList}">
-        <div class="card-body">
-            <div class="card-text" style="white-space: pre-line;" th:text="${FreeBoard.content}"></div>
-            <div class="d-flex justify-content-end">
-                <div class="badge bg-light text-dark p-2 text-start">
-                    <div th:text="${#temporals.format(Fanswer.createDate, 'yyyy-MM-dd HH:mm')}"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    
-    
-    <!-- 답변 반복 끝  -->
-    
-    
-    <!--  아래 답변 예시 , 삭제할것 -->
-    <form th:action="@{|/answer/create/${question.id}|}" method="post">
-    <textarea name="content" id="content" rows="15"></textarea>
-    <input type="submit" value="답변등록">
-</form>
-
-    <!-- 답변 작성 -->
-    <form th:action="@{|/facreate/${FreeBoard.id}|}" th:object="${FanserDto}" method="post" class="my-3">
-	
-		
-        <textarea name="content" id="content" rows="10" class="form-control"></textarea>
-        <input type="submit" value="답변등록" class="btn btn-dark my-2">
-    </form>
-    
-    
-    <footer th:replace="~{footer::footerfragment}"></footer>
-</div>
+		</div>
 
 
 
 
 
 
-<script layout:fragment="script" type='text/javascript'>
+
+
+
+
+
+
+	</div>
+    
+<script>
 
 //삭제 03-09
 const delete_elements = document.getElementsByClassName("delete");
@@ -427,7 +371,7 @@ Array.from(delete_elements).forEach(function(element) {
     });
 });
 
-//추천 03-09
+//추천
 const recommend_elements = document.getElementsByClassName("recommend");
 Array.from(recommend_elements).forEach(function(element) {
     element.addEventListener('click', function() {
@@ -436,5 +380,8 @@ Array.from(recommend_elements).forEach(function(element) {
         };
     });
 });
-
 </script>
+<footer th:replace="~{footer::footerfragment}"></footer>
+</body>
+
+</html>

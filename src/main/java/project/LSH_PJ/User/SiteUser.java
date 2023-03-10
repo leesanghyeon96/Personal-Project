@@ -32,22 +32,22 @@ public class SiteUser {
     private String password;
 
     @Column(unique = true)
-    private	 String email;
+    private	String email;
     
-//    @Enumerated(EnumType.STRING)
-//    private Role role;
+    @Enumerated(EnumType.STRING)
+    private Role role;
     
     //03-09 권한부여
-//    public static SiteUser createSiteUser(UserDto userDto, PasswordEncoder passwordEncoder) {
-//    	SiteUser siteUser = new SiteUser();
-//    	siteUser.setUsername(userDto.getUsername());
-//    	siteUser.setEmail(userDto.getEmail());
-//    	String password = passwordEncoder.encode(userDto.getPassword1());
-//    	siteUser.setPassword(password);
-//    	siteUser.setRole(Role.ADMIN);
-//    	
-//    	return siteUser;
-//    }
+    public static SiteUser createSiteUser(UserDto userDto, PasswordEncoder passwordEncoder) {
+    	SiteUser siteUser = new SiteUser();
+    	siteUser.setUsername(userDto.getUsername());
+    	siteUser.setEmail(userDto.getEmail());
+    	String password = passwordEncoder.encode(userDto.getPassword1());
+    	siteUser.setPassword(password);
+    	siteUser.setRole(Role.ADMIN);
+    	
+    	return siteUser;
+    }
 
 
 }

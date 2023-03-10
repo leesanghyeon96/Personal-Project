@@ -33,6 +33,10 @@ public class Fanswer {
     @ManyToOne
     private FreeBoard freeBoard;
     
+    //03-10 답변
+    @ManyToOne
+    private SiteUser author;
+    
     //글 수정 03-09
     private LocalDateTime modifyDate;
     
