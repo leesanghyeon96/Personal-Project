@@ -1,0 +1,47 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content">
+<th:block layout:fragment="css">
+	<link rel = "stylesheet" type = "text/css" href="rv.css">
+</th:block>
+	<style>
+
+	</style>
+	<h2>예약하기</h2>
+	<form action="/rv" method="post">
+	<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+		<div class="rvdiv">
+			<label for="programs">프로그램 선택</label>
+			<select name="programs" id="programs">
+				<option value="학교 단체 교육">학교 단체 교육</option>
+				<option value="봉사활동">봉사활동</option>
+			</select>
+			
+			<label for="num">예약 인원(봉사활동)</label>
+			<select name="num" id="num">
+				<option value="1명">1명</option>
+				<option value="2명">2명</option>
+				<option value="3명">3명</option>
+				<option value="4명">4명</option>
+				<option value="단체">단체</option>
+			</select>
+			
+			<label for="day">요일선택</label>
+			<select name="day" id="day">
+				<option value="화요일">화요일</option>
+				<option value="목요일">목요일</option>
+			</select>
+			
+			<label for="time">시간선택</label>
+			<select name="time" id="time">
+				<option value="오전">오전(9:00 ~ 12:00)</option>
+				<option value="오후">오루(2:00 ~ 5:00)</option>
+			</select>
+			<input type="submit" value="예약하기"/>
+		</div>
+	</form>
+	
+	
+	
+	
+</div>
+</html>

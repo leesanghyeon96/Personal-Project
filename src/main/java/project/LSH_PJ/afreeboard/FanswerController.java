@@ -33,11 +33,11 @@ public class FanswerController {
     private final UserService userService;
     
     // 상세 게시판답변을 저장 03-09
+    @PreAuthorize("isAuthenticated()")
     @PostMapping("/facreate/{id}")
     public String createAnswer(Model model, @PathVariable("id") Integer id, 
     		@Valid FanswerDto fanswerDto, BindingResult bindingResult, Principal principal) {
     	
-    		//System.out.println(principal.getName());
     	
     	FreeBoard freeBoard = this.freeBoardService.getFreeBoard(id);
     	//답변을 저장하는 메소드 호출
@@ -63,7 +63,6 @@ public class FanswerController {
     @GetMapping("/adelete/{id}")
     public String answerDelete(Principal principal, @PathVariable("id") Integer id) {
     	
-    	//System.out.println("=====> : " + id);
         Fanswer fanswer = this.fanswerService.getAnswer(id);
         
         
