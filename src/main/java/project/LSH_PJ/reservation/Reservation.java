@@ -17,7 +17,7 @@ import project.LSH_PJ.user.SiteUser;
 @Setter
 @ToString
 public class Reservation {
-
+	// 03-13
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

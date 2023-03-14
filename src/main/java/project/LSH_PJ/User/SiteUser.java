@@ -38,7 +38,8 @@ public class SiteUser {
     private Role role;
     
     //03-09 권한부여
-    public static SiteUser createSiteUser(UserDto userDto, PasswordEncoder passwordEncoder) {
+    public static SiteUser createSiteUser(UserDto userDto, 
+    		PasswordEncoder passwordEncoder) {
     	SiteUser siteUser = new SiteUser();
     	siteUser.setUsername(userDto.getUsername());
     	siteUser.setEmail(userDto.getEmail());

@@ -8,7 +8,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
-// 03-01 (회원가입을 위한 폼 클래스 생성)
+// 03-01 (회원가입을 위한 DTO 생성)
 @Getter
 @Setter
 public class UserDto {
@@ -26,6 +26,4 @@ public class UserDto {
 	@NotEmpty(message = "이메일을 입력해 주세요.")
 	@Email(message = "이메일 형식으로 입력해주세요.")
 	private String email;
-
-	
 }

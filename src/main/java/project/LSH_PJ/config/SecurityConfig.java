@@ -19,7 +19,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class SecurityConfig {
 	// 03-01 스프링 시큐리티로 인해 추가함 (로그인하지 않아도 모든 페이지 접근가능)
 	
-	// 03-10 로그인처리
+	
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     	
@@ -36,7 +36,7 @@ public class SecurityConfig {
     	
     	
     	
-    	
+		// 03-10 로그인처리
         http.formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/")

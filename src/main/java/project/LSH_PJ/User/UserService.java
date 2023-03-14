@@ -21,42 +21,6 @@ import project.LSH_PJ.constant.Role;
 public class UserService implements UserDetailsService{
 	
 	private final UserRepository userRepository;
-	
-//    private final UserRepository userRepository;
-//    private final PasswordEncoder passwordEncoder;
-//    
-//    public SiteUser saveUser(SiteUser siteUser) {
-//    	twouser(siteUser);
-//    	return userRepository.save(siteUser);
-//    }
-//    
-//    private void twouser(SiteUser siteUser) {
-//    	Optional<SiteUser> findUser = userRepository.findByusername(siteUser.getUsername());
-//    	
-//    	if(findUser != null) {
-//    		throw new IllegalStateException("이미 가입된 회원입니다.");
-//    	}
-//    }
-    
-//    public SiteUser create(String username, String email, String password, Role role) {
-//    	SiteUser user = new SiteUser();
-//    	
-//    	user.setUsername(username);
-//    	user.setEmail(email);
-//    	
-//        
-//        //SecurityConfig에 빈을 생성해 객체주입
-//        //BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-//    	//user.setPassword(passwordEncoder.encode(password));
-//        user.setPassword(this.passwordEncoder.encode(password));
-//        
-//        user.setRole(role);
-//        
-//        this.userRepository.save(user);
-//        
-//        return user;
-//        
-//    }
     
      //03-08 사용자 정보 얻어오기
     public SiteUser getUser(String email) {
@@ -75,19 +39,9 @@ public class UserService implements UserDetailsService{
     }
     
 
+
 	
-//	public SiteUser getUser(String username) {
-//		SiteUser siteUser = this.userRepository.findByUsername(username);
-//		
-//		if(siteUser != null) {
-//			return siteUser.getClass();
-//		}
-//	}
-//	
-	
-	
-	
-	
+    // 03-10
 	public SiteUser saveUser(SiteUser siteUser) {
 		
 		return userRepository.save(siteUser);
@@ -100,12 +54,11 @@ public class UserService implements UserDetailsService{
     	}
 	}
 	
-	
+	// 03-10
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
     	SiteUser siteUser = userRepository.findByUsername(email);
-    			//.findByUsername(userName);
     	
     	if(siteUser == null) {
     		throw new UsernameNotFoundException(email);
@@ -116,7 +69,6 @@ public class UserService implements UserDetailsService{
     			.password(siteUser.getPassword())
     			.roles(siteUser.getRole().toString())
     			.build();
-
     }
 
 

@@ -26,6 +26,8 @@
 	                        <input type="text" name="username" size="20" id="username" placeholder="아이디를 입력해주세요">
 	                    </div>
 	                    
+	                    <p th:if="${loginErrorMsg}" class="error" th:text="${loginErrorMsg}"></p>
+	                    
 	                    <div class="loginbox_pw">
 	                        <p>비밀번호</p>
 	                        <input type="text" name="password" size="20" id="password" placeholder="비밀번호를 입력해주세요">

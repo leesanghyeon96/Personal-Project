@@ -29,7 +29,7 @@ public class FreeBoardService {
 	}
 	
 	
-	// 글 등록 insert 메소드 생성 03-08
+	// 글 등록 create 메소드 생성 03-08
 	public void fbcreate(String content, String subject, SiteUser user) {
 		// SiteUser user => 글쓴이
 		

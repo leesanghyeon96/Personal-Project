@@ -9,6 +9,5 @@ public interface UserRepository extends JpaRepository<SiteUser, Long> {
 	
 	// 03-06 (사용자 조회 기능 추가)
 	SiteUser findByEmail(String email);
-	
 	SiteUser findByUsername(String username);
 }

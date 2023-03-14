@@ -18,15 +18,15 @@ public class ReservationService {
 	private final UserRepository userRepository;
 	
 	// DB에 예약 저장
-	public void resv(String programs, String num, String day, String time,
+	public void resv(String programs, String num, String dday, String dtime,
 			 SiteUser user) {
 		
 		Reservation rv = new Reservation();
 		
-		rv.setDday(day);
+		rv.setDday(dday);
 		rv.setNum(num);
 		rv.setPrograms(programs);
-		rv.setDtime(time);
+		rv.setDtime(dtime);
 		rv.setCreateDate(LocalDateTime.now());
 		rv.setAuthor(user);
 		

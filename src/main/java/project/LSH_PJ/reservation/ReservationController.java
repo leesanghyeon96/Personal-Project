@@ -38,12 +38,8 @@ public class ReservationController {
         this.reservationService.resv(reservationDTO.getPrograms(), reservationDTO.getNum(), 
         		reservationDTO.getDday(), reservationDTO.getDtime(), siteUser);
         
-        
-        
-        // 결과를 모델에 추가하여 결과 페이지에서 사용할 수 있도록 합니다.
         model.addAttribute("message", "예약이 완료되었습니다.");
 
-        // 예약 완료 페이지로 이동합니다.
         return "rvend";
     }
 	
